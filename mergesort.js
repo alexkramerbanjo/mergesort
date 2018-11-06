@@ -3,9 +3,9 @@ function bSplit(arr) {
         let first = arr.slice(0, Math.floor(arr.length/2));
         let second = arr.slice(Math.floor(arr.length/2));
         return [first, second]
-    } else return arr;
+    } else { return arr;
 }
-
+}
 function merge(a, b) {
     let elem;
     const arr = [];
@@ -25,12 +25,11 @@ function merge(a, b) {
 }
 
 function mergeSort(arr) {
-    //first case
-    if (arr.length > 1) {
+    if (arr.length > 1) { //if arr is greater than one, split it, then merge the recursive call of the halves
         arr = bSplit(arr);
         return merge(mergeSort(arr[0]), mergeSort(arr[1]))
     }
-    if (arr.length === 1) {
+    if (arr.length === 1) { //base case: if it's one, return itself.
         return arr;
     }
 }
