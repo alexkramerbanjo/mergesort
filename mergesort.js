@@ -1,7 +1,9 @@
 function bSplit(arr) {
+    if (arr.length > 1) {
         let first = arr.slice(0, Math.floor(arr.length/2));
         let second = arr.slice(Math.floor(arr.length/2));
         return [first, second]
+    } else return arr;
 }
 
 function merge(a, b) {
@@ -20,4 +22,15 @@ function merge(a, b) {
     } else { 
         return arr.concat(b)        
 }
+}
+
+function mergeSort(arr) {
+    //first case
+    if (arr.length > 1) {
+        arr = bSplit(arr);
+        return merge(mergeSort(arr[0]), mergeSort(arr[1]))
+    }
+    if (arr.length === 1) {
+        return arr;
+    }
 }
